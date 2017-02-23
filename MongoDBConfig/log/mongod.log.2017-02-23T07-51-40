@@ -1,0 +1,19 @@
+2017-02-23T15:50:45.854+0800 I CONTROL  [initandlisten] MongoDB starting : pid=64064 port=12345 dbpath=./data 64-bit host=SWL-PC
+2017-02-23T15:50:45.854+0800 I CONTROL  [initandlisten] targetMinOS: Windows 7/Windows Server 2008 R2
+2017-02-23T15:50:45.854+0800 I CONTROL  [initandlisten] db version v3.4.2
+2017-02-23T15:50:45.854+0800 I CONTROL  [initandlisten] git version: 3f76e40c105fc223b3e5aac3e20dcd026b83b38b
+2017-02-23T15:50:45.854+0800 I CONTROL  [initandlisten] OpenSSL version: OpenSSL 1.0.1u-fips  22 Sep 2016
+2017-02-23T15:50:45.854+0800 I CONTROL  [initandlisten] allocator: tcmalloc
+2017-02-23T15:50:45.854+0800 I CONTROL  [initandlisten] modules: none
+2017-02-23T15:50:45.854+0800 I CONTROL  [initandlisten] build environment:
+2017-02-23T15:50:45.855+0800 I CONTROL  [initandlisten]     distmod: 2008plus-ssl
+2017-02-23T15:50:45.855+0800 I CONTROL  [initandlisten]     distarch: x86_64
+2017-02-23T15:50:45.855+0800 I CONTROL  [initandlisten]     target_arch: x86_64
+2017-02-23T15:50:45.855+0800 I CONTROL  [initandlisten] options: { config: ".\conf\mongod.conf", net: { port: 12345 }, storage: { dbPath: "./data" }, systemLog: { destination: "file", path: "./log/mongod.log" } }
+2017-02-23T15:50:45.856+0800 E NETWORK  [initandlisten] listen(): bind() failed 通常每个套接字地址(协议/网络地址/端口)只允许使用一次。 for socket: 0.0.0.0:12345
+2017-02-23T15:50:45.856+0800 E NETWORK  [initandlisten] Failed to set up sockets during startup.
+2017-02-23T15:50:45.856+0800 E STORAGE  [initandlisten] Failed to set up listener: InternalError: Failed to set up sockets
+2017-02-23T15:50:45.856+0800 I NETWORK  [initandlisten] shutdown: going to close listening sockets...
+2017-02-23T15:50:45.856+0800 I NETWORK  [initandlisten] shutdown: going to flush diaglog...
+2017-02-23T15:50:45.856+0800 I CONTROL  [initandlisten] now exiting
+2017-02-23T15:50:45.856+0800 I CONTROL  [initandlisten] shutting down with code:48

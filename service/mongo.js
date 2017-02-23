@@ -1,10 +1,7 @@
 "use strict"
 var mongojs = require('mongojs');
-var config = {
-	host:"127.0.0.1",
-	port:12345,
-	database:"topic"
-};
+var path = require("path");
+var config = require(path.join(__dirname,"..","conf","dbConfig.json"));
 
 var conninsc;//
 

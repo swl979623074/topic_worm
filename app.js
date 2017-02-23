@@ -2,19 +2,21 @@
 var path = require("path"); 
 var url = require("url");
 var superagent  = require("superagent");
-// var cheerio = require("cheerio");
 var mongo = require("./service/mongo.js");
-var conf = require("./conf/newstype.json");
+
+var newsTypeConf = require(path.join(__dirname,"conf","newstype.json"));
+
+// var cheerio = require("cheerio");
 
 var basepath = "https://ttpc.dftoutiao.com/jsonpc/refresh?";
 
 var targetUrl = [];
 
 function init(){
-	for(var ele in conf){
+	for(var ele in newsTypeConf){
 		var obj = {};
 		obj["type"] = ele;
-		obj["url"] = basepath+"type="+conf[ele][0]+"&param=www.baidu.com";
+		obj["url"] = basepath+"type="+newsTypeConf[ele][0]+"&param=www.baidu.com";
 		targetUrl.push(obj);
 	}
 	return targetUrl;
