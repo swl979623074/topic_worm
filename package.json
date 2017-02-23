@@ -1,0 +1,19 @@
+{
+  "name": "bug",
+  "version": "1.0.0",
+  "description": "this is a test about bug",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "author": "swl",
+  "license": "ISC",
+  "dependencies": {
+    "async": "^2.0.0-rc.6",
+    "cheerio": "^0.20.0",
+    "eventproxy": "^0.3.4",
+    "express": "^4.9.5",
+    "superagent": "^2.0.0",
+	"mongojs":"2.4.0"
+  }
+}
