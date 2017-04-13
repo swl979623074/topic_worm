@@ -13,7 +13,9 @@
     "cheerio": "^0.20.0",
     "eventproxy": "^0.3.4",
     "express": "^4.9.5",
-    "superagent": "^2.0.0",
-	"mongojs":"2.4.0"
+    "mkdirp": "^0.5.1",
+    "mongojs": "2.4.0",
+    "request": "^2.81.0",
+    "superagent": "^2.0.0"
   }
 }

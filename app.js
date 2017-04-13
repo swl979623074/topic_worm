@@ -3,13 +3,16 @@ var path = require("path");
 var url = require("url");
 var superagent  = require("superagent");
 var mongo = require("./service/mongo.js");
+var fs = require('fs');
+var request = require("request");
+var mkdirp = require('mkdirp');
 
 var newsTypeConf = require(path.join(__dirname,"conf","newstype.json"));
 
-// var cheerio = require("cheerio");
-
 var basepath = "https://ttpc.dftoutiao.com/jsonpc/refresh?";
-
+//本地存储目录
+var imgDir = path.join(__dirname ,'images');
+console.log(imgDir)
 var targetUrl = [];
 
 function init(){
@@ -22,9 +25,32 @@ function init(){
 	return targetUrl;
 }
 
+function downLoadImg(imgUrl){
+	var str = imgUrl.split("mobile/")[1];
+	var date = str.split("/")[0];
+	var filename = str.split("/")[1];
+	var dir =  path.join(imgDir + "/" +date);
+	var imgPath = dir+ "/"+ filename;
+	mkdirp(dir, function(err) {
+		if(err){
+			console.log(err);
+		}else{
+			request.head(imgUrl, function(err, res, body){
+				request(imgUrl).pipe(fs.createWriteStream(imgPath));
+			});
+		}
+	});
+	return imgPath;
+}
+
 function upsert(newsType,data){
 	var upsert = mongo.upsert;
-	for(var i=0;i<data.length;i++){
+	for(var i=0;i<data.length;i++){		
+		data[i].lbimg[0].src = downLoadImg(data[i].lbimg[0].src);	
+		data[i].miniimg.map(function(obj){
+			obj.src = downLoadImg(obj.src);			
+		})
+		
 		var cfg = {collection:newsType,filter:{"rowkey":data[i]['rowkey']},data:data[i]};
 		upsert(cfg,function(err,doc){
 			if(err){
